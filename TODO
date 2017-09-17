@@ -1,0 +1,12 @@
+Unofficial list of things that need to get done, thought about, fleshed out, etc...
+
+1. Investigate tracing
+2. Add database struct tags to necessary fields
+3. Pin generation, storage, dissemination
+4. GRPC endpoints
+5. Payments module: Stripe, PayPal, etc...
+6. Admin API
+7. Reporting package. https://github.com/jung-kurt/gofpdf
+8. Notifications: gopkg.in/gomail.v2, github.com/sfreiberg/gotwilio
+9. Research authentication schemes
+10. 

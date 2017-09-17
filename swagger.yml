@@ -1,0 +1,325 @@
+swagger: '2.0'
+info:
+  title: Raven API (WIP)
+  description: Something creative... 
+  version: "1.0.0"
+# the domain of the service
+host: api.uber.com
+# array of all schemes that your API supports
+schemes:
+  - https
+# will be prefixed to all paths
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /location/update:
+    post:
+      summary: Update Device Location
+      description: |
+        The location endpoint will constantly receive incoming geo data for app users.
+      parameters:
+        - name: latitude
+          in: query
+          description: Latitude component of location.
+          required: true
+          type: number
+          format: double
+        - name: longitude
+          in: query
+          description: Longitude component of location.
+          required: true
+          type: number
+          format: double
+      tags:
+        - Location
+      responses:
+        200:
+          description: Data was successfully received
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Runner'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /package/request:
+    post:
+      summary: Add summary
+      description: |
+        Add description
+      parameters:
+        - name: package_size
+          in: query
+          description: Enum selection for package size
+          required: true
+          type: string
+        - name: start_latitude
+          in: query
+          description: Latitude component of start location.
+          required: true
+          type: number
+          format: double
+        - name: start_longitude
+          in: query
+          description: Longitude component of start location.
+          required: true
+          type: number
+          format: double
+        - name: end_latitude
+          in: query
+          description: Latitude component of end location.
+          required: true
+          type: number
+          format: double
+        - name: end_longitude
+          in: query
+          description: Longitude component of end location.
+          required: true
+          type: number
+          format: double
+      tags:
+        - Package
+      responses:
+        200:
+          description: Add description for successful call
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Package'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /package/status:
+    get:
+      summary: Add summary
+      description: |
+        Add description
+      tags:
+        - Package
+      responses:
+        200:
+          description: Add description for successful call
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Package'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /package/delivered:
+    post:
+      summary: Add summary
+      description: |
+        Add description
+      parameters:
+        - name: package_id
+          in: query
+          description: Package ID
+          required: true
+          type: string
+          format: uuid          
+      tags:
+        - Package
+      responses:
+        200:
+          description: Add description for successful call
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Package'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /package/secure:
+    post:
+      summary: Add summary
+      description: |
+        Add description
+      parameters:
+        - name: package_id
+          in: query
+          description: Package ID
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Package
+      responses:
+        200:
+          description: Add description for successful call
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Package'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /package/accept:
+    post:
+      summary: Add summary
+      description: |
+        Add description
+      parameters:
+        - name: package_id
+          in: query
+          description: Package ID
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - Package
+      responses:
+        200:
+          description: Add description for successful call
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Package'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /runner/location:
+    get:
+      summary: Add summary
+      description: |
+        Add description
+      tags:
+        - Runner
+      responses:
+        200:
+          description: Add description for successful call
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Package'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /sender/profile:
+    get:
+      summary: Add summary
+      description: |
+        Add description
+      tags:
+        - Package
+      responses:
+        200:
+          description: Add description for successful call
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Package'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /runner/profile:
+    get:
+      summary: Add summary
+      description: |
+        Add description
+      tags:
+        - Package
+      responses:
+        200:
+          description: Add description for successful call
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Package'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /user/profile:
+    get:
+      summary: Add summary
+      description: |
+        Add description
+      tags:
+        - Package
+      responses:
+        200:
+          description: Add description for successful call
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Package'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /user/edit:
+    get:
+      summary: Add summary
+      description: |
+        Add description
+      tags:
+        - Package
+      responses:
+        200:
+          description: Add description for successful call
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Package'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /user/update:
+    post:
+      summary: Add summary
+      description: |
+        Add description
+      parameters:
+        - name: first_name
+          in: query
+          description: First name of the user
+          required: true
+          type: string
+      tags:
+        - Package
+      responses:
+        200:
+          description: Add description for successful call
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Package'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+definitions:
+  Package:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+  Runner:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
